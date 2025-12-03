@@ -262,7 +262,7 @@ export default function Home() {
                   NODE: INFORMATION
                 </h2>
                 <p className="mt-1 text-[0.7rem] text-emerald-300/80">
-                  WAN MUHAMMAD FAIZ BIN WAN ABD GHANI · SOFTWARE ENGINEER
+                  WAN MUHAMMAD FAIZ BIN WAN ABD GHANI
                 </p>
                 <p className="mt-1 text-[0.7rem] text-emerald-300/80">
                   Game Client Engineer · Software Engineer · Full-stack Developer
