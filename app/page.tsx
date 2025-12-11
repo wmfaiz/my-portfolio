@@ -129,14 +129,14 @@ const experiencesByCompany: CompanyExperience[] = [
     overallPeriod: "Apr 2025 – Present",
     roles: [
       {
-        title: "Lead Client Engineer",
+        title: "Lead Tools Engineer",
         period: "Oct 2025 – Present",
         summary:
           "Leading the client engineering team: owning technical direction, code quality, repo structure, build automation and performance across in-game and out-of-game flows.",
         highlight: true,
       },
       {
-        title: "Client Engineer",
+        title: "Tools Engineer",
         period: "Apr 2025 – Oct 2025",
         summary:
           "Joined as Client Engineer focusing on gameplay and client features, profiling and performance fixes, tools, automation and integrations — leading to promotion.",
