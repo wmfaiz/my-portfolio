@@ -117,7 +117,7 @@ const experiencesByCompany: CompanyExperience[] = [
     overallPeriod: "3 months",
     roles: [
       {
-        title: "Web Developer",
+        title: "FullStack Developer",
         period: "3 months",
         summary:
           "Improved system security and UX with SSO, remember-me, data encryption/decryption, frontend redesign, backend refactor, deployment and Discourse community setup.",
