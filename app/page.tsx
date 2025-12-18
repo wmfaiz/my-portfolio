@@ -3,6 +3,8 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 type SkillLevel = "High" | "Medium" | "Low";
 
@@ -65,38 +67,26 @@ const skills: Skill[] = [
 
 const experiencesByCompany: CompanyExperience[] = [
   {
-    company: "PfC Engineering",
-    overallPeriod: "6 months",
-    roles: [
-      {
-        title: "Semi-skilled Technician",
-        period: "6 months",
-        summary:
-          "Worked in a team-based environment and supported colleagues across tasks, demonstrating adaptability and collaboration.",
-      },
-    ],
-  },
-  {
     company: "Blue Vinegar",
     overallPeriod: "8 months",
     roles: [
       {
         title: "Technical Analyst",
-        period: "8 months",
+        period: "Jul 2020 - Feb 2021",
         summary:
           "Created and enhanced ERP solutions on the Odoo platform with custom modules and workflows.",
       },
     ],
   },
   {
-    company: "Shimmersensing",
-    overallPeriod: "2 years 2 months",
+    company: "Self-Employed",
+    overallPeriod: "6 months",
     roles: [
       {
-        title: "Software Engineer",
-        period: "2 years 2 months",
+        title: "Freelance",
+        period: "Feb 2021 - Jul 2023",
         summary:
-          "Handled AWS accounts, cloud deployments, software development, troubleshooting and system improvements.",
+          "Taking on various freelance projects including web development, automation scripts, data analysis and small applications for clients.",
       },
     ],
   },
@@ -106,9 +96,21 @@ const experiencesByCompany: CompanyExperience[] = [
     roles: [
       {
         title: "Software Engineer",
-        period: "1 year",
+        period: "Jul 2023 - Jul 2024",
         summary:
           "Maintained AWS infrastructure, Jenkins deployment pipelines and full-stack features for Verisense Cloud.",
+      },
+    ],
+  },
+  {
+    company: "Self-Employed",
+    overallPeriod: "6 months",
+    roles: [
+      {
+        title: "Freelance",
+        period: "Jul 2024 - Dec 2024",
+        summary:
+          "Taking on various freelance projects including web development, automation scripts, data analysis and small applications for clients.",
       },
     ],
   },
@@ -118,9 +120,21 @@ const experiencesByCompany: CompanyExperience[] = [
     roles: [
       {
         title: "FullStack Developer",
-        period: "3 months",
+        period: "Dec 2024 - Feb 2025",
         summary:
           "Improved system security and UX with SSO, remember-me, data encryption/decryption, frontend redesign, backend refactor, deployment and Discourse community setup.",
+      },
+    ],
+  },
+    {
+    company: "Self-Employed",
+    overallPeriod: "6 months",
+    roles: [
+      {
+        title: "Freelance",
+        period: "Feb 2025 - Apr 2025",
+        summary:
+          "Taking on various freelance projects including web development, automation scripts, data analysis and small applications for clients.",
       },
     ],
   },
@@ -588,7 +602,7 @@ export default function Home() {
         {/* footer */}
         <footer className="mt-4 flex items-center justify-between border-t border-emerald-500/30 pt-3 text-[0.65rem] text-emerald-400/80">
           <span>© 2020 Wan Muhammad Faiz</span>
-          <span>Rendered with Next.js · THE MATRIX HAS YOU</span>
+          <span>Power with Next.js</span>
         </footer>
       </main>
     </div>
