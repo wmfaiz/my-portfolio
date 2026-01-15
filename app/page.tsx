@@ -35,13 +35,14 @@ const skills: Skill[] = [
   { name: "C#", level: "High", category: "Programming" },
   { name: "Python", level: "High", category: "Programming" },
   { name: "Java", level: "High", category: "Programming" },
-  { name: "JavaScript", level: "High", category: "Programming" },
+  { name: "Vanilla JavaScript", level: "High", category: "Programming" },
   { name: "jQuery", level: "High", category: "Programming" },
   { name: "Go", level: "Medium", category: "Programming" },
-  { name: "React.js", level: "Medium", category: "Programming" },
-  { name: "Vue.js", level: "Medium", category: "Programming" },
+  { name: "Lua", level: "Medium", category: "Programming" },
+  { name: "React", level: "Medium", category: "Programming" },
+  { name: "Vue", level: "Medium", category: "Programming" },
   { name: "PHP", level: "Medium", category: "Programming" },
-  { name: "Rails", level: "Low", category: "Programming" },
+  { name: "Ruby on Rails", level: "Low", category: "Programming" },
 
   { name: "MySQL", level: "High", category: "Tools" },
   { name: "PostgreSQL", level: "High", category: "Tools" },
@@ -53,11 +54,13 @@ const skills: Skill[] = [
   { name: "Unity3D", level: "High", category: "Tools" },
   { name: "Jira", level: "High", category: "Tools" },
   { name: "Jenkins", level: "High", category: "Tools" },
-  { name: "Eclipse", level: "Medium", category: "Tools" },
+  { name: "Roblox", level: "High", category: "Tools" },
+  { name: "Eclipse", level: "High", category: "Tools" },
+  { name: "Netbeans", level: "High", category: "Tools" },
+  { name: "Firebase", level: "High", category: "Tools" },
+  { name: "AWS", level: "High", category: "Tools" },
   { name: "Ubuntu", level: "Medium", category: "Tools" },
-  { name: "Firebase", level: "Medium", category: "Tools" },
   { name: "Odoo (ERP)", level: "Medium", category: "Tools" },
-  { name: "AWS", level: "Medium", category: "Tools" },
   { name: "Discourse", level: "Medium", category: "Tools" },
   { name: "Electron", level: "Medium", category: "Tools" },
   { name: "Azure", level: "Medium", category: "Tools" },
@@ -271,13 +274,10 @@ export default function Home() {
             <div className="mb-4 flex items-center justify-between gap-3 border-b border-emerald-500/20 pb-3">
               <div>
                 <h2 className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-400">
-                  NODE: INFORMATION
+                  NODE:// INFORMATION
                 </h2>
-                <p className="mt-1 text-[0.7rem] text-emerald-300/80">
+                <p className="mt-1 text-[0.8rem] text-emerald-300/80">
                   WAN MUHAMMAD FAIZ BIN WAN ABD GHANI
-                </p>
-                <p className="mt-1 text-[0.7rem] text-emerald-300/80">
-                  Game Client Engineer · Software Engineer · Full-stack Developer
                 </p>
               </div>
             </div>
@@ -371,7 +371,7 @@ export default function Home() {
           {/* experience timeline */}
           <div className="relative overflow-hidden rounded-2xl border border-emerald-500/30 bg-black/70 p-5 shadow-[0_0_40px_rgba(34,197,94,0.25)] backdrop-blur">
             <h2 className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-400">
-              QUEST_LOG // CAREER
+              NODE:// CAREER
             </h2>
             <p className="mb-4 mt-1 text-[0.7rem] text-emerald-300/80">
               INDUSTRIAL EXPOSURE & EXPERIENCE
@@ -431,7 +431,7 @@ export default function Home() {
         <section className="grid gap-6 md:grid-cols-[minmax(0,2.3fr)_minmax(0,1.7fr)]">
           <div className="overflow-hidden rounded-2xl border border-emerald-500/30 bg-black/70 p-5 shadow-[0_0_35px_rgba(34,197,94,0.25)] backdrop-blur">
             <h2 className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-400">
-              SKILL_TREE // PROGRAMMING
+              SUPPORT:// PROGRAMMING
             </h2>
             <p className="mb-4 mt-1 text-[0.7rem] text-emerald-300/80">
               LANGUAGES & FRAMEWORKS
@@ -457,7 +457,7 @@ export default function Home() {
 
           <div className="overflow-hidden rounded-2xl border border-emerald-500/30 bg-black/70 p-5 shadow-[0_0_35px_rgba(34,197,94,0.25)] backdrop-blur">
             <h2 className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-400">
-              INVENTORY // TOOLS
+              SUPPORT:// TOOLS
             </h2>
             <p className="mb-4 mt-1 text-[0.7rem] text-emerald-300/80">
               DATABASES · DEVOPS · CLOUD
@@ -492,10 +492,7 @@ export default function Home() {
             </div>
             <div className="flex flex-wrap gap-2 text-[0.7rem] text-emerald-200/90">
               <span className="rounded-full border border-emerald-500/40 bg-black/70 px-3 py-1">
-                Bachelor in Software Engineering (UMT)
-              </span>
-              <span className="rounded-full border border-emerald-500/40 bg-black/70 px-3 py-1">
-                Cloud · Backend · Client Engineering
+                Bachelor in Software Engineering (UMT) - Software Engineer
               </span>
             </div>
           </div>
@@ -508,9 +505,10 @@ export default function Home() {
                   CAREER_OBJECTIVE
                 </h3>
                 <p className="text-[0.8rem] leading-relaxed text-emerald-100/90">
-                  Seeking opportunities with forward-thinking teams where I can
-                  apply my engineering skills, keep learning and help deliver
-                  reliable, scalable products in a professional environment.
+                  Software engineer with years of hands-on experience shipping and 
+                  maintaining real-world products. I take ownership, write clean and scalable code, 
+                  and consistently deliver reliable features backed by automation, strong debugging, 
+                  and performance-first engineering.
                 </p>
               </div>
 
