@@ -140,7 +140,7 @@ const experiencesByCompany: CompanyExperience[] = [
     ],
   },
   {
-    company: "Okaichi Sdn. Bhd",
+    company: "Okakichi Sdn. Bhd",
     overallPeriod: "Apr 2025 – Present",
     roles: [
       {
