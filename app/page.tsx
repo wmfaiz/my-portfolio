@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -178,17 +178,6 @@ const education: Education[] = [
   },
 ];
 
-function levelColor(level: SkillLevel) {
-  switch (level) {
-    case "High":
-      return "bg-emerald-500/10 text-emerald-200 border-emerald-400/40";
-    case "Medium":
-      return "bg-lime-500/5 text-lime-200 border-lime-400/40";
-    case "Low":
-      return "bg-sky-500/5 text-sky-200 border-sky-400/40";
-  }
-}
-
 /** Full-screen Matrix rain background */
 function MatrixRainBackground() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -257,14 +246,386 @@ function MatrixRainBackground() {
   );
 }
 
-export default function Home() {
+function levelColor(level: SkillLevel, mode: "light" | "dark") {
+  if (mode === "light") {
+    switch (level) {
+      case "High":
+        return "bg-emerald-50 text-emerald-900 border-emerald-200";
+      case "Medium":
+        return "bg-lime-50 text-lime-900 border-lime-200";
+      case "Low":
+        return "bg-sky-50 text-sky-900 border-sky-200";
+    }
+  }
+
+  // dark
+  switch (level) {
+    case "High":
+      return "bg-emerald-500/5 text-emerald-100 border-emerald-400/40";
+    case "Medium":
+      return "bg-lime-500/5 text-lime-200 border-lime-400/40";
+    case "Low":
+      return "bg-sky-500/5 text-sky-200 border-sky-400/40";
+  }
+}
+
+
+function WhiteView() {
   return (
-    <div className="relative min-h-screen overflow-hidden">
+<div className="relative min-h-screen overflow-hidden">
+      {/* overlays for readability + subtle grid glow */}
+      <div className="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-b from-slate-50 via-white to-slate-100" />
+      <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.18),transparent_60%)]" />
+
+      <main className="mx-auto flex max-w-6xl flex-col gap-10 px-4 pb-20 pt-10 text-sm text-slate-800 md:px-8 lg:pt-14">
+        {/* Info + Experience */}
+        <section className="grid gap-6 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
+          {/* Information panel */}
+          <div className="relative overflow-hidden rounded-2xl border border-emerald-200/70 bg-white/70 p-5 shadow-[0_12px_40px_rgba(15,23,42,0.10)] backdrop-blur">
+            <div className="mb-4 flex items-center justify-between gap-3 border-b border-emerald-200/70 pb-3">
+              <div>
+                <h2 className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-700">
+                  NODE:// INFORMATION
+                </h2>
+                <p className="mt-1 text-[0.8rem] text-slate-600">
+                  WAN MUHAMMAD FAIZ BIN WAN ABD GHANI
+                </p>
+              </div>
+            </div>
+            <div className="mb-4 flex items-center justify-between gap-3 border-b border-emerald-200/70 pb-3">
+              <div className="flex flex-wrap gap-2 text-[0.7rem] text-slate-700">
+                <span className="rounded-full border border-emerald-200 bg-white/60 px-4 py-1 shadow-[0_0_20px_rgba(34,197,94,0.4)]">
+                  LEVEL <span className="font-bold text-emerald-700">05</span>{" "}
+                  / SOFTWARE ENGINEER
+                </span>
+                <span className="rounded-full border border-emerald-200/70 bg-white/60 px-4 py-1">
+                  XP: <span className="font-semibold text-lime-700">92%</span> →
+                  NEXT UPGRADE
+                </span>
+              </div>
+              <div className="text-right text-[0.65rem] text-slate-600">
+                <div>LOCATION: MY, JOHOR</div>
+                <div>LANGUAGE: EN / MY</div>
+              </div>
+            </div>
+
+            {/* profile + summary */}
+            <div className="mb-4 flex items-center gap-4">
+              <Image
+                src="/profile-icon.png"
+                alt="Portrait of Wan Muhammad Faiz"
+                width={96}
+                height={96}
+                priority
+                className="h-35 w-35"
+              />
+              <p className="text-[0.8rem] leading-relaxed text-slate-800">
+                Motivated software engineer with strong experience in cloud,
+                backend and client engineering. Enjoys solving complex problems,
+                improving product performance and working across the full stack
+                from infrastructure to UX.
+              </p>
+            </div>
+
+            {/* XP bar */}
+            <div className="space-y-2">
+              <div className="flex items-center justify-between text-[0.7rem] text-slate-700">
+                <span>CAREER_XP</span>
+                <span>5+ YEARS</span>
+              </div>
+              <div className="h-2 overflow-hidden rounded-full bg-emerald-100">
+                <div className="h-full w-[78%] rounded-full bg-gradient-to-r from-emerald-400 via-lime-400 to-cyan-300" />
+              </div>
+            </div>
+
+            {/* contact list */}
+            <div className="mt-5 grid gap-2 text-[0.75rem] text-slate-800">
+              <a
+                href="tel:+60104164294"
+                className="flex items-center justify-between rounded-lg border border-emerald-200 bg-white/70 px-3 py-2 hover:border-lime-400/70 hover:bg-emerald-500/10"
+              >
+                <span className="font-semibold text-slate-700">PHONE</span>
+                <span className="text-slate-800">+60 10-416 4294</span>
+              </a>
+              <a
+                href="mailto:wan_faiz@yahoo.com"
+                className="flex items-center justify-between rounded-lg border border-emerald-200 bg-white/70 px-3 py-2 hover:border-lime-400/70 hover:bg-emerald-500/10"
+              >
+                <span className="font-semibold text-slate-700">EMAIL</span>
+                <span className="truncate text-slate-800">
+                  wan_faiz@yahoo.com
+                </span>
+              </a>
+              <Link
+                href="https://www.linkedin.com/in/wan-m-faiz"
+                target="_blank"
+                className="flex items-center justify-between rounded-lg border border-emerald-200 bg-white/70 px-3 py-2 hover:border-lime-400/70 hover:bg-emerald-500/10"
+              >
+                <span className="font-semibold text-slate-700">
+                  LINKEDIN
+                </span>
+                <span className="truncate text-cyan-700">/in/wan-m-faiz</span>
+              </Link>
+              <Link
+                href="https://github.com/WMFaiz"
+                target="_blank"
+                className="flex items-center justify-between rounded-lg border border-emerald-200 bg-white/70 px-3 py-2 hover:border-lime-400/70 hover:bg-emerald-500/10"
+              >
+                <span className="font-semibold text-slate-700">GITHUB</span>
+                <span className="truncate text-cyan-700">
+                  github.com/WMFaiz
+                </span>
+              </Link>
+            </div>
+          </div>
+
+          {/* experience timeline */}
+          <div className="relative overflow-hidden rounded-2xl border border-emerald-200/70 bg-white/70 p-5 shadow-[0_12px_40px_rgba(15,23,42,0.10)] backdrop-blur">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-700">
+              NODE:// CAREER
+            </h2>
+            <p className="mb-4 mt-1 text-[0.7rem] text-slate-600">
+              INDUSTRIAL EXPOSURE & EXPERIENCE
+            </p>
+
+            <ol className="space-y-5 text-[0.8rem]">
+              {[...experiencesByCompany].reverse().map((exp, index) => (
+                <li key={`${exp.company}-${exp.overallPeriod}-${index}`} className="relative pl-5">
+                  <div className="absolute left-0 top-1 h-3 w-3 rounded-full border border-emerald-400 bg-white" />
+                  {index !== experiencesByCompany.length - 1 && (
+                    <div className="absolute left-[6px] top-4 h-full w-px bg-emerald-200/70" />
+                  )}
+
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="font-semibold text-slate-800">
+                      {exp.company}
+                    </div>
+                    <div className="text-[0.7rem] text-slate-600">
+                      {exp.overallPeriod}
+                    </div>
+                  </div>
+
+                  <div className="mt-2 space-y-2">
+                    {exp.roles.map((role) => (
+                      <div
+                        key={role.title + role.period}
+                        className="rounded-xl border border-emerald-200/70 bg-white/70 px-3 py-2"
+                      >
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-2">
+                            <span className="text-[0.75rem] font-semibold text-slate-800">
+                              {role.title}
+                            </span>
+                            {role.highlight && (
+                              <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-[0.18em] text-slate-700">
+                                PROMOTED
+                              </span>
+                            )}
+                          </div>
+                          <span className="text-[0.65rem] text-slate-600">
+                            {role.period}
+                          </span>
+                        </div>
+                        <p className="mt-1 text-[0.7rem] leading-relaxed text-slate-800">
+                          {role.summary}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* skills + tools */}
+        <section className="grid gap-6 md:grid-cols-[minmax(0,2.3fr)_minmax(0,1.7fr)]">
+          <div className="overflow-hidden rounded-2xl border border-emerald-200/70 bg-white/70 p-5 shadow-[0_12px_32px_rgba(15,23,42,0.10)] backdrop-blur">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-700">
+              SUPPORT:// PROGRAMMING
+            </h2>
+            <p className="mb-4 mt-1 text-[0.7rem] text-slate-600">
+              LANGUAGES & FRAMEWORKS
+            </p>
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
+              {skills
+                .filter((s) => s.category === "Programming")
+                .map((skill) => (
+                  <div
+                    key={skill.name}
+                    className={`flex flex-col gap-1 rounded-xl border px-3 py-2 text-[0.75rem] transition hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] ${levelColor(
+                      skill.level,
+                      "light"
+                    )}`}
+                  >
+                    <div className="font-semibold">{skill.name}</div>
+                    <div className="text-[0.6rem] uppercase tracking-[0.16em] text-slate-700">
+                      {skill.level} MASTERY
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
+
+          <div className="overflow-hidden rounded-2xl border border-emerald-200/70 bg-white/70 p-5 shadow-[0_12px_32px_rgba(15,23,42,0.10)] backdrop-blur">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-700">
+              SUPPORT:// TOOLS
+            </h2>
+            <p className="mb-4 mt-1 text-[0.7rem] text-slate-600">
+              DATABASES · DEVOPS · CLOUD
+            </p>
+            <div className="flex flex-wrap gap-2 text-[0.7rem]">
+              {skills
+                .filter((s) => s.category === "Tools")
+                .map((skill) => (
+                  <span
+                    key={skill.name}
+                    className={`rounded-full border px-3 py-1 transition hover:-translate-y-0.5 hover:shadow-[0_0_18px_rgba(34,197,94,0.3)] ${levelColor(
+                      skill.level,
+                      "light"
+                    )}`}
+                  >
+                    {skill.name}
+                  </span>
+                ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CV overview */}
+        <section className="overflow-hidden rounded-2xl border border-emerald-200/70 bg-white/75 p-5 shadow-[0_14px_44px_rgba(15,23,42,0.10)] backdrop-blur">
+          <div className="mb-5 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h2 className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-700">
+                CV_OVERVIEW
+              </h2>
+              <p className="mt-1 text-[0.7rem] text-slate-600">
+                SNAPSHOT OF EDUCATION & REFERENCES
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2 text-[0.7rem] text-slate-700">
+              <span className="rounded-full border border-emerald-200 bg-white/70 px-3 py-1">
+                Bachelor in Software Engineering (UMT) - Software Engineer
+              </span>
+            </div>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-[minmax(0,2fr)_minmax(0,2fr)]">
+            {/* objective + education */}
+            <div className="space-y-5">
+              <div>
+                <h3 className="mb-2 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-emerald-700">
+                  CAREER_OBJECTIVE
+                </h3>
+                <p className="text-[0.8rem] leading-relaxed text-slate-800">
+                  Software engineer with years of hands-on experience shipping and 
+                  maintaining real-world products. I take ownership, write clean and scalable code, 
+                  and consistently deliver reliable features backed by automation, strong debugging, 
+                  and performance-first engineering.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="mb-2 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-emerald-700">
+                  EDUCATION
+                </h3>
+                <ul className="space-y-2 text-[0.8rem]">
+                  {education.map((edu) => (
+                    <li key={edu.place}>
+                      <div className="flex items-center justify-between text-[0.7rem] text-slate-600">
+                        <span>{edu.place}</span>
+                        <span>{edu.period}</span>
+                      </div>
+                      <div className="text-[0.8rem] font-semibold text-slate-800">
+                        {edu.title}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* references */}
+            <div className="space-y-5">
+              <div>
+                <h3 className="mb-2 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-emerald-700">
+                  REFERENCES
+                </h3>
+                <div className="grid gap-3 text-[0.75rem] text-slate-800 md:grid-cols-2">
+                  <div className="rounded-xl border border-emerald-200/70 bg-white/70 p-3">
+                    <div className="font-semibold text-slate-800">
+                      Muhammad Amir Qushairi Jais
+                    </div>
+                    <div className="text-slate-600">
+                      Lead Fullstack Developer
+                    </div>
+                    <div className="mt-2 text-slate-800">
+                      Phone: 019-9111920
+                    </div>
+                    <div className="truncate text-slate-800">
+                      Email: muhd.amirqushairijais@gmail.com
+                    </div>
+                  </div>
+                  <div className="rounded-xl border border-emerald-200/70 bg-white/70 p-3">
+                    <div className="font-semibold text-slate-800">
+                      Aqil Ashraaf
+                    </div>
+                    <div className="text-slate-600">Web Developer</div>
+                    <div className="mt-2 text-slate-800">
+                      Phone: 010-5739057
+                    </div>
+                    <div className="truncate text-slate-800">
+                      Email: aqilashraaf.18@gmail.com
+                    </div>
+                  </div>
+                  <div className="rounded-xl border border-emerald-200/70 bg-white/70 p-3">
+                    <div className="font-semibold text-slate-800">
+                      Muaaz Badrul Hisham
+                    </div>
+                    <div className="text-slate-600">Software Engineer</div>
+                    <div className="mt-2 text-slate-800">
+                      Phone: 019-9652230
+                    </div>
+                    <div className="truncate text-slate-800">
+                      Email: muaazbadrul@gmail.com
+                    </div>
+                  </div>
+                  <div className="rounded-xl border border-emerald-200/70 bg-white/70 p-3">
+                    <div className="font-semibold text-slate-800">
+                      Nisa Asila
+                    </div>
+                    <div className="text-slate-600">Software Engineer</div>
+                    <div className="mt-2 text-slate-800">
+                      Phone: 013-3236905
+                    </div>
+                    <div className="truncate text-slate-800">
+                      Email: nisaasilamn@gmail.com
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* footer */}
+        <footer className="mt-4 flex items-center justify-between border-t border-emerald-200/70 pt-3 text-[0.65rem] text-emerald-700/80">
+          <span>© 2020 Wan Muhammad Faiz</span>
+          <span>Power with Next.js</span>
+        </footer>
+      </main>
+    </div>
+  );
+}
+
+function DarkView() {
+  return (
+<div className="relative min-h-screen overflow-hidden">
       <MatrixRainBackground />
 
       {/* overlays for readability + subtle grid glow */}
       <div className="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/90 to-black" />
-      <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(34,197,94,0.18),transparent_60%)]" />
+      <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(34,197,94,0.08),transparent_60%)]" />
 
       <main className="mx-auto flex max-w-6xl flex-col gap-10 px-4 pb-20 pt-10 text-sm text-emerald-100 md:px-8 lg:pt-14">
         {/* Info + Experience */}
@@ -379,7 +740,7 @@ export default function Home() {
 
             <ol className="space-y-5 text-[0.8rem]">
               {[...experiencesByCompany].reverse().map((exp, index) => (
-                <li key={exp.company} className="relative pl-5">
+                <li key={`${exp.company}-${exp.overallPeriod}-${index}`} className="relative pl-5">
                   <div className="absolute left-0 top-1 h-3 w-3 rounded-full border border-emerald-400 bg-black" />
                   {index !== experiencesByCompany.length - 1 && (
                     <div className="absolute left-[6px] top-4 h-full w-px bg-emerald-700/60" />
@@ -442,9 +803,7 @@ export default function Home() {
                 .map((skill) => (
                   <div
                     key={skill.name}
-                    className={`flex flex-col gap-1 rounded-xl border px-3 py-2 text-[0.75rem] transition hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] ${levelColor(
-                      skill.level
-                    )}`}
+                    className={`flex flex-col gap-1 rounded-xl border px-3 py-2 text-[0.75rem] transition hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] ${levelColor(skill.level, "dark")}`}
                   >
                     <div className="font-semibold">{skill.name}</div>
                     <div className="text-[0.6rem] uppercase tracking-[0.16em] text-emerald-100/80">
@@ -468,9 +827,7 @@ export default function Home() {
                 .map((skill) => (
                   <span
                     key={skill.name}
-                    className={`rounded-full border px-3 py-1 transition hover:-translate-y-0.5 hover:shadow-[0_0_18px_rgba(34,197,94,0.3)] ${levelColor(
-                      skill.level
-                    )}`}
+                    className={`rounded-full border px-3 py-1 transition hover:-translate-y-0.5 hover:shadow-[0_0_18px_rgba(34,197,94,0.3)] ${levelColor(skill.level, "dark")}`}
                   >
                     {skill.name}
                   </span>
@@ -601,6 +958,41 @@ export default function Home() {
           <span>Power with Next.js</span>
         </footer>
       </main>
+    </div>);
+}
+
+export default function Home() {
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    const saved = localStorage.getItem("theme");
+    const initial = saved === "dark" ? "dark" : "light"; // default: light
+    setTheme(initial);
+  }, []);
+
+  const toggleTheme = () => {
+    setTheme((prev) => {
+      const next = prev === "dark" ? "light" : "dark";
+      localStorage.setItem("theme", next);
+      return next;
+    });
+  };
+
+  return (
+    <div className="relative">
+      <button
+        type="button"
+        onClick={toggleTheme}
+        className={`fixed right-6 top-6 z-[60] rounded-xl border px-4 py-2 text-sm font-semibold shadow-sm transition ${
+          theme === "dark"
+            ? "border-emerald-500/30 bg-black/70 text-emerald-100 hover:bg-black/80"
+            : "border-emerald-200 bg-white text-slate-900 hover:bg-slate-50"
+        }`}
+      >
+        {theme === "dark" ? "Light" : "Dark"}
+      </button>
+
+      {theme === "dark" ? <DarkView /> : <WhiteView />}
     </div>
   );
 }
