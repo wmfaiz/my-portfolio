@@ -182,7 +182,7 @@ export default function Home() {
           <div className="flex flex-col gap-4 py-5 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--muted)]">
-                Wan Muhammad Faiz
+                Wan Muhammad Faiz Bin Wan Abd Ghani
               </p>
               <h1 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">
                 Software Engineer
@@ -421,8 +421,8 @@ export default function Home() {
 
         <footer className="mt-10 border-t border-[var(--border)] pt-6 text-sm text-[var(--muted)]">
           <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-            <span>© 2020 Wan Muhammad Faiz</span>
-            <span>Built with Next.js</span>
+            <span>© 2020 Wan Muhammad Faiz Bin Wan Abd Ghani</span>
+            <span>Build with Next.js</span>
           </div>
         </footer>
       </div>
