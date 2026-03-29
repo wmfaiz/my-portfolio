@@ -296,10 +296,7 @@ export default function Home() {
 
               <div className="mt-6 grid gap-4 md:grid-cols-2">
                 {references.map((reference) => (
-                  <div
-                    key={reference.email}
-                    className="rounded-2xl border border-[var(--border)] bg-[color:var(--background)/0.35] p-5"
-                  >
+                  <div className="rounded-2xl border border-[var(--border)] bg-[color:var(--background)/0.35] p-5" key={reference.name}>
                     <h3 className="text-base font-semibold">{reference.name}</h3>
                     <p className="mt-1 text-sm text-[var(--soft-foreground)]">
                       {reference.title}
