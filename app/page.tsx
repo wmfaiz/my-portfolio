@@ -178,28 +178,30 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
       <div className="mx-auto max-w-6xl px-6 py-8 md:px-8 lg:px-10">
-        <header className="sticky top-0 z-20 mb-8 border-b border-[var(--border)] bg-[color:var(--background)/0.92] backdrop-blur">
-          <div className="flex flex-col gap-4 py-5 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--muted)]">
+        <header className="mb-6 border-b border-[var(--border)] bg-[color:var(--background)/0.92] backdrop-blur md:sticky md:top-0 md:z-20 md:mb-8">
+          <div className="flex flex-col gap-3 py-3 md:flex-row md:items-center md:justify-between md:gap-4 md:py-5">
+            <div className="min-w-0">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)] sm:text-xs md:text-sm md:tracking-[0.24em]">
                 Wan Muhammad Faiz Bin Wan Abd Ghani
               </p>
-              <h1 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">
+
+              <h1 className="mt-1 text-2xl font-semibold tracking-tight sm:text-3xl md:mt-2 md:text-4xl">
                 Software Engineer
               </h1>
-              <p className="mt-3 max-w-2xl text-sm leading-7 text-[var(--soft-foreground)] md:text-base">
+
+              <p className="mt-2 max-w-xl text-sm leading-6 text-[var(--soft-foreground)] md:mt-3 md:max-w-2xl md:text-base md:leading-7">
                 Backend and full-stack software engineer with experience in cloud
                 infrastructure, deployment automation, product engineering, and
                 practical system delivery across web and software platforms.
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:flex md:flex-wrap md:items-center md:gap-3">
               <a
                 href={resumePdfUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-sm font-medium transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                className="rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-center text-sm font-medium transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
               >
                 View Resume
               </a>
@@ -207,7 +209,7 @@ export default function Home() {
               <a
                 href={resumePdfUrl}
                 download
-                className="rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white transition hover:opacity-90"
+                className="rounded-full bg-[var(--accent)] px-4 py-2 text-center text-sm font-medium text-white transition hover:opacity-90"
               >
                 Download PDF Resume
               </a>
@@ -217,7 +219,7 @@ export default function Home() {
                 onClick={() =>
                   setTheme((prev) => (prev === "dark" ? "light" : "dark"))
                 }
-                className="rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-sm font-medium transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                className="rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-sm font-medium transition hover:border-[var(--accent)] hover:text-[var(--accent)] sm:col-span-2 md:col-span-1"
               >
                 {theme === "dark" ? "Light mode" : "Dark mode"}
               </button>
