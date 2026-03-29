@@ -85,7 +85,7 @@ const experiences: Experience[] = [
 const skillGroups = [
   {
     title: "Languages",
-    items: ["C#", "Python", "Java", "JavaScript", "Go", "PHP", "Lua"],
+    items: ["C#", "Python", "Java", "JavaScript", "Go", "PHP", "Lua", "Rust"],
   },
   {
     title: "Frontend",
@@ -421,7 +421,7 @@ export default function Home() {
 
         <footer className="mt-10 border-t border-[var(--border)] pt-6 text-sm text-[var(--muted)]">
           <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-            <span>© 2026 Wan Muhammad Faiz</span>
+            <span>© 2020 Wan Muhammad Faiz</span>
             <span>Built with Next.js</span>
           </div>
         </footer>
