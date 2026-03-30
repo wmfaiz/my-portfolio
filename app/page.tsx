@@ -664,7 +664,7 @@ export default function Home() {
 
                       <p>
                         <span className="font-semibold text-slate-900">Backend:</span>{" "}
-                        REST APIs, OAuth, System Integration
+                        REST APIs, .NET / ASP.NET, OAuth, System Integration
                       </p>
 
                       <p>
