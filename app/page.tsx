@@ -131,6 +131,7 @@ const skillGroups = [
     title: "Backend & API Development",
     items: [
       "RESTful API Design",
+      ".NET / ASP.NET",
       "Authentication (OAuth, SSO)",
       "Data Processing",
       "Service Integration",
