@@ -27,58 +27,79 @@ type Reference = {
 const experiences: Experience[] = [
   {
     company: "Okakichi Sdn. Bhd.",
-    role: "Lead Developer",
-    period: "Oct 2025 – Present",
+    role: "Lead Application Developer",
+    period: "Oct 2025 – March 2026",
     highlights: [
-      "Lead engineering delivery across backend and frontend workstreams, with ownership of technical direction, code quality, repository structure, and build automation.",
-      "Support maintainable product delivery by improving engineering workflows, collaboration, and overall implementation quality.",
-      "Work across product and technical needs with a focus on reliability, performance, and scalable development practices.",
-    ],
+      "Led a team of 8 engineers, driving client-side development and ensuring seamless integration with backend systems.",
+      "Resolved full-stack issues to maintain stable cross-platform builds for Android and iOS.",
+      "Coordinated feature delivery across frontend and backend, contributing to gameplay systems and product improvements.",
+      "Managed deployment pipelines and improved automation workflows using Jenkins.",
+    ]
   },
   {
     company: "Okakichi Sdn. Bhd.",
     role: "Full-Stack Developer",
     period: "Apr 2025 – Oct 2025",
     highlights: [
-      "Built and supported frontend and backend features for gameplay-focused product work.",
-      "Handled profiling, performance improvements, bug fixes, tooling, automation, and integrations.",
-      "Contributed to engineering quality and product delivery, leading to promotion into a lead role.",
-    ],
+      "Developed and maintained full-stack features for cross-platform mobile applications.",
+      "Diagnosed and resolved system issues, improving stability and reducing build failures.",
+      "Implemented gameplay features and client-side mechanics.",
+      "Supported deployment and automation workflows using Jenkins.",
+    ]
   },
   {
     company: "Ricrym",
     role: "Full-Stack Developer",
     period: "Dec 2024 – Feb 2025",
     highlights: [
-      "Improved security and user experience with SSO and remember-me workflows.",
-      "Worked on encryption and decryption flows, frontend redesign, backend refactoring, deployment, and Discourse community setup.",
-    ],
+      "Developed and maintained full-stack features for cross-platform mobile applications.",
+      "Diagnosed and resolved system issues, improving stability and reducing build failures.",
+      "Implemented gameplay features and client-side mechanics.",
+      "Supported deployment and automation workflows using Jenkins.",
+    ]
   },
   {
     company: "Verisense Health",
     role: "Software Engineer",
     period: "Jul 2023 – Jul 2024",
     highlights: [
-      "Maintained AWS infrastructure and Jenkins deployment pipelines for Verisense Cloud.",
-      "Built and supported full-stack product features with emphasis on reliable deployment and engineering support.",
-    ],
+      "Implemented authentication systems including SSO and session management.",
+      "Refactored backend and frontend architecture to improve maintainability.",
+      "Developed encryption and decryption workflows for secure data handling.",
+      "Supported deployment processes and integrated Discourse platform.",
+    ]
   },
-  {
-    company: "Self-Employed",
-    role: "Freelance Software Developer",
-    period: "Feb 2021 – Apr 2025",
+    {
+    company: "Shimmer Sensing",
+    role: "Software Engineer",
+    period: "Jun 2021 – Jul 2023",
     highlights: [
-      "Delivered freelance work across web development, automation scripts, data-related tasks, and small business applications.",
-      "Handled practical implementation across backend logic, frontend interfaces, and client-focused technical problem-solving.",
-    ],
+      "Maintained AWS infrastructure to ensure system stability and availability.",
+      "Managed CI/CD pipelines using Jenkins for continuous delivery.",
+      "Developed and supported full-stack features with focus on reliability.",
+      "Collaborated across teams to support deployment and operational workflows.",
+    ]
   },
   {
     company: "Blue Vinegar",
     role: "Technical Analyst",
     period: "Jul 2020 – Feb 2021",
     highlights: [
-      "Created and enhanced ERP solutions on the Odoo platform through custom modules and workflow improvements.",
-    ],
+      "Developed and customized ERP solutions using Odoo.",
+      "Implemented modules and workflows to improve business processes.",
+      "Translated business requirements into system-level solutions.",
+    ]
+  },
+  {
+    company: "Self-Employed",
+    role: "Freelance Software Developer",
+    period: "Feb 2021 – Apr 2025",
+    highlights: [
+      "Delivered full-stack and automation solutions for various client projects.",
+      "Built backend services, frontend interfaces, and system integrations.",
+      "Developed automation scripts to improve workflow efficiency.",
+      "Translated business needs into technical implementations.",
+    ]
   },
 ];
 
@@ -130,22 +151,11 @@ const skillGroups = [
   },
   {
     title: "Frontend Technologies",
-    items: [
-      "React",
-      "Vue.js",
-      "Next.js",
-      "jQuery",
-    ],
+    items: ["React", "Vue.js", "Next.js", "jQuery"],
   },
   {
     title: "Databases",
-    items: [
-      "PostgreSQL",
-      "MySQL",
-      "SQL Server",
-      "MongoDB",
-      "Firebase",
-    ],
+    items: ["PostgreSQL", "MySQL", "SQL Server", "MongoDB", "Firebase"],
   },
   {
     title: "Game Development",
@@ -212,10 +222,20 @@ const references: Reference[] = [
   },
 ];
 
+const summaryTags = [
+  "Backend Engineering",
+  "Full-Stack Development",
+  "DevOps & CI/CD",
+  "Cloud Infrastructure",
+  "Automation",
+  "Game Development",
+];
+
 const resumePdfUrl = "/Wan_Muhammad_Faiz_Resume.pdf";
 
 export default function Home() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [showCV, setShowCV] = useState(false);
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem("resume-theme");
@@ -231,7 +251,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
-      <div className="mx-auto max-w-6xl px-6 py-8 md:px-8 lg:px-10">
+      <div className="mx-auto max-w-6xl px-4 py-5 sm:px-5 md:px-8 md:py-8 lg:px-10">
         <header className="mb-6 border-b border-[var(--border)] bg-[color:var(--background)/0.92] backdrop-blur md:sticky md:top-0 md:z-20 md:mb-8">
           <div className="flex flex-col gap-3 py-3 md:flex-row md:items-center md:justify-between md:gap-4 md:py-5">
             <div className="min-w-0">
@@ -251,6 +271,14 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:flex md:flex-wrap md:items-center md:gap-3">
+              <button
+                type="button"
+                onClick={() => setShowCV(true)}
+                className="rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-center text-sm font-medium transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              >
+                CV
+              </button>
+
               <a
                 href={resumePdfUrl}
                 target="_blank"
@@ -294,15 +322,8 @@ export default function Home() {
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2">
-                {[
-                  "Backend Engineering",
-                  "Full-Stack Development",
-                  "DevOps & CI/CD",
-                  "Cloud Infrastructure",
-                  "Automation",
-                  "Game Development",
-                ].map((item) => (
-                  <span key={item} className="chip">
+                {summaryTags.map((item, index) => (
+                  <span key={`summary-tag-${index}-${item}`} className="chip">
                     {item}
                   </span>
                 ))}
@@ -313,9 +334,9 @@ export default function Home() {
               <h2 className="section-title">Experience</h2>
 
               <div className="mt-6 space-y-8">
-                {experiences.map((job) => (
+                {experiences.map((job, jobIndex) => (
                   <article
-                    key={`${job.company}-${job.role}-${job.period}`}
+                    key={`experience-${jobIndex}-${job.company}-${job.role}-${job.period}`}
                     className="border-l border-[var(--border)] pl-5"
                   >
                     <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
@@ -329,9 +350,9 @@ export default function Home() {
                     </div>
 
                     <ul className="mt-4 space-y-3">
-                      {job.highlights.map((item) => (
+                      {job.highlights.map((item, highlightIndex) => (
                         <li
-                          key={item}
+                          key={`highlight-${jobIndex}-${highlightIndex}`}
                           className="flex gap-3 text-sm leading-7 text-[var(--soft-foreground)]"
                         >
                           <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" />
@@ -351,8 +372,11 @@ export default function Home() {
               </p>
 
               <div className="mt-6 grid gap-4 md:grid-cols-2">
-                {references.map((reference) => (
-                  <div className="rounded-2xl border border-[var(--border)] bg-[color:var(--background)/0.35] p-5" key={reference.name}>
+                {references.map((reference, index) => (
+                  <div
+                    key={`reference-${index}-${reference.name}`}
+                    className="rounded-2xl border border-[var(--border)] bg-[color:var(--background)/0.35] p-5"
+                  >
                     <h3 className="text-base font-semibold">{reference.name}</h3>
                     <p className="mt-1 text-sm text-[var(--soft-foreground)]">
                       {reference.title}
@@ -435,32 +459,13 @@ export default function Home() {
             </section>
 
             <section className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-7 shadow-sm">
-              <h2 className="section-title">Core Skills</h2>
-
-              <div className="mt-5 space-y-5">
-                {skillGroups.map((group) => (
-                  <div key={group.title}>
-                    <h3 className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--muted)]">
-                      {group.title}
-                    </h3>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {group.items.map((item) => (
-                        <span key={item} className="chip">
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-7 shadow-sm">
               <h2 className="section-title">Education</h2>
 
               <div className="mt-5 space-y-5">
-                {education.map((item) => (
-                  <div key={`${item.institution}-${item.degree}`}>
+                {education.map((item, index) => (
+                  <div
+                    key={`education-${index}-${item.institution}-${item.degree}`}
+                  >
                     <p className="text-sm font-semibold">{item.degree}</p>
                     <p className="mt-1 text-sm text-[var(--soft-foreground)]">
                       {item.institution}
@@ -468,6 +473,30 @@ export default function Home() {
                     <p className="mt-1 text-sm text-[var(--muted)]">
                       {item.period}
                     </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-7 shadow-sm">
+              <h2 className="section-title">Core Skills</h2>
+
+              <div className="mt-5 space-y-5">
+                {skillGroups.map((group, groupIndex) => (
+                  <div key={`skill-group-${groupIndex}-${group.title}`}>
+                    <h3 className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--muted)]">
+                      {group.title}
+                    </h3>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {group.items.map((item, itemIndex) => (
+                        <span
+                          key={`skill-item-${groupIndex}-${itemIndex}-${item}`}
+                          className="chip"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -482,6 +511,237 @@ export default function Home() {
           </div>
         </footer>
       </div>
+
+      {showCV && (
+        <div
+          className="fixed inset-0 z-50 flex items-start justify-center bg-black/55 p-2 sm:p-4 md:p-6"
+          onClick={() => setShowCV(false)}
+        >
+          <div
+            className="relative h-[96vh] w-full max-w-4xl overflow-y-auto rounded-lg border border-slate-300 bg-white text-slate-900 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="sticky top-0 z-10 flex flex-col gap-3 border-b border-slate-200 bg-white px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6 print:hidden">
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  Curriculum Vitae
+                </p>
+                <h2 className="mt-1 text-lg font-semibold sm:text-xl">
+                  Wan Muhammad Faiz Bin Wan Abd Ghani
+                </h2>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setShowCV(false)}
+                  className="rounded-md border border-slate-300 bg-white px-3 py-2 text-sm font-medium transition hover:border-slate-500"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+
+            <div className="mx-auto max-w-[900px] px-5 py-6 sm:px-8 sm:py-8">
+              <section className="border-b border-slate-200 pb-5">
+                <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                  <div>
+                    <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+                      Wan Muhammad Faiz Bin Wan Abd Ghani
+                    </h1>
+                    <p className="mt-1 text-sm font-medium uppercase tracking-[0.14em] text-slate-600">
+                      Software Engineer
+                    </p>
+                  </div>
+
+                  <div className="space-y-1 text-sm text-slate-700 md:text-right">
+                    <p>Malaysia</p>
+                    <p>
+                      <a
+                        href="mailto:wan_faiz@yahoo.com"
+                        className="hover:underline"
+                      >
+                        wan_faiz@yahoo.com
+                      </a>
+                    </p>
+                    <p>
+                      <a href="tel:+60104164294" className="hover:underline">
+                        +60 10-416 4294
+                      </a>
+                    </p>
+                    <p>
+                      <a
+                        href="https://www.linkedin.com/in/wan-m-faiz"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="hover:underline"
+                      >
+                        linkedin.com/in/wan-m-faiz
+                      </a>
+                    </p>
+                    <p>
+                      <a
+                        href="https://github.com/WMFaiz"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="hover:underline"
+                      >
+                        github.com/WMFaiz
+                      </a>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-4">
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                    Professional Summary
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-700">
+                    Backend-focused Software Engineer with experience in full-stack
+                    development, cloud infrastructure, and DevOps automation. Proven
+                    ability to deliver scalable systems, maintain CI/CD pipelines, and
+                    support cross-platform applications (Android & iOS), with
+                    additional experience in game systems development.
+                  </p>
+                </div>
+              </section>
+
+              <div className="grid gap-8 pt-5 md:grid-cols-[1.65fr_0.95fr]">
+                <div className="space-y-6">
+                  <section>
+                    <h2 className="border-b border-slate-200 pb-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-700">
+                      Professional Experience
+                    </h2>
+
+                    <div className="mt-4 space-y-5">
+                      {experiences.map((job, jobIndex) => (
+                        <article
+                          key={`cv-exp-${jobIndex}-${job.company}-${job.role}`}
+                        >
+                          <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
+                            <div>
+                              <h3 className="text-base font-semibold text-slate-900">
+                                {job.role}
+                              </h3>
+                              <p className="text-sm font-medium text-slate-700">
+                                {job.company}
+                              </p>
+                            </div>
+                            <p className="text-sm text-slate-500">{job.period}</p>
+                          </div>
+
+                          <ul className="mt-2 space-y-1.5">
+                            {job.highlights.map((item, itemIndex) => (
+                              <li
+                                key={`cv-exp-item-${jobIndex}-${itemIndex}`}
+                                className="flex gap-2 text-sm leading-6 text-slate-700"
+                              >
+                                <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-slate-500" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </article>
+                      ))}
+                    </div>
+                  </section>
+                </div>
+
+                <aside className="space-y-6">
+                  <section>
+                    <h2 className="border-b border-slate-200 pb-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-700">
+                      Technical Skills
+                    </h2>
+
+                    <div className="mt-4 space-y-2.5 text-sm leading-6 text-slate-700">
+                      <p>
+                        <span className="font-semibold text-slate-900">
+                          Languages:
+                        </span>{" "}
+                        C#, Go, Python, JavaScript, TypeScript
+                      </p>
+
+                      <p>
+                        <span className="font-semibold text-slate-900">Backend:</span>{" "}
+                        REST APIs, OAuth, System Integration
+                      </p>
+
+                      <p>
+                        <span className="font-semibold text-slate-900">DevOps:</span>{" "}
+                        AWS, CI/CD (Jenkins), Linux, Nginx
+                      </p>
+
+                      <p>
+                        <span className="font-semibold text-slate-900">
+                          Frontend:
+                        </span>{" "}
+                        React, Vue.js, Next.js
+                      </p>
+
+                      <p>
+                        <span className="font-semibold text-slate-900">
+                          Databases:
+                        </span>{" "}
+                        PostgreSQL, MySQL, MongoDB
+                      </p>
+
+                      <p>
+                        <span className="font-semibold text-slate-900">Other:</span>{" "}
+                        Unity (3D), Automation, Web Scraping
+                      </p>
+                    </div>
+                  </section>
+
+                  <section>
+                    <h2 className="border-b border-slate-200 pb-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-700">
+                      Education
+                    </h2>
+
+                    <div className="mt-4 space-y-4">
+                      {education.map((item, index) => (
+                        <div key={`cv-edu-${item.institution}-${index}`}>
+                          <p className="text-sm font-semibold text-slate-900">
+                            {item.degree}
+                          </p>
+                          <p className="text-sm text-slate-700">
+                            {item.institution}
+                          </p>
+                          <p className="text-sm text-slate-500">{item.period}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+
+                  <section>
+                    <h2 className="border-b border-slate-200 pb-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-700">
+                      References
+                    </h2>
+
+                    <div className="mt-6 grid gap-4 md:grid-cols-2">
+                      {references.map((reference, index) => (
+                        <div
+                          key={`reference-${index}-${reference.name}`}
+                        >
+                          <h3 className="text-base font-semibold">{reference.name}</h3>
+                          <p className="mt-1 text-sm text-[var(--soft-foreground)]">
+                            {reference.title}
+                          </p>
+                          <p className="mt-1 text-sm text-[var(--soft-foreground)]">
+                            {reference.company}
+                          </p>
+                          <p className="mt-1 text-sm font-semibold text-[var(--soft-foreground)]">
+                            {reference.note}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
