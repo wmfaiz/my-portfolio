@@ -165,6 +165,8 @@ const skillGroups = [
     title: "Automation & Tools",
     items: [
       "Python Automation",
+      "Android Studio",
+      "Xcode",
       "Bash Scripting",
       "Web Scraping",
       "Discourse Integration",
@@ -286,7 +288,7 @@ export default function Home() {
                   onClick={() => setShowCV(true)}
                   className="rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-center text-sm font-medium transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
                 >
-                  CV
+                  View CV
                 </button>
 
                 <button
