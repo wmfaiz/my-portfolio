@@ -675,7 +675,7 @@ export default function Home() {
                       </p>
                       <p>
                         <span className="font-semibold text-slate-900">Other:</span>{" "}
-                        Unity (3D), Automation, Web Scraping, Odoo
+                        Unity (3D), Automation, Web Scraping, Odoo, Xcode, Android Studio
                       </p>
                     </div>
                   </section>
